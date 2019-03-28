@@ -13,6 +13,8 @@ const main = document.getElementsByTagName('main')[0];
 const input = document.getElementsByTagName('input')[0];
 const search = document.getElementById('search');
 const pastQueries = document.getElementById('pastQueries');
+const menuCont = document.getElementById('menu-container');
+const navMenu = document.getElementById('nav-menu');
 let queries = [];
 
 
@@ -48,7 +50,7 @@ function renderNews(articles) {
       '   <h2 class="title">' + article.title + '</h2>' +
       '   <h3>By ' + article.author +'</h3>' +
       '   <p> ' + article.description + '</p>' +
-      '   <a href="' + article.url + '" target="_blank" class="readmore">Read More</a>' +
+      '   <a href="' + article.url + '" target="_blank" class="readmore hvr-skew-forward">Read More</a>' +
       '<hr>'
       ' </div>' +
       '</div>' +
@@ -139,3 +141,10 @@ search.addEventListener('click', function() {
    getNews('https://newsapi.org/v2/everything?q=' + input.value + '&apiKey=')
    .then(articlesArray => renderNews(articlesArray))
 }, false);
+
+
+
+  menuCont.addEventListener('click', function(x) {
+    menuCont.classList.toggle("change");
+    navMenu.classList.toggle("show")
+  })
