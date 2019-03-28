@@ -17,7 +17,7 @@ let queries = [];
 
 
 // News API Data
-const apiKey = '59fdb57b14804940b45c1030f866bdab';
+const apiKey = 'e1a57c30f61646bfa1568e026031039e';
 const cnnUrl = 'https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=';
 const ignUrl = 'https://newsapi.org/v1/articles?source=ign&sortBy=latest&apiKey=';
 const espnUrl = 'https://newsapi.org/v1/articles?source=espn&sortBy=latest&apiKey=';
@@ -68,14 +68,15 @@ function renderNews(articles) {
   return articles;
 }
 
-// Button Event Listeners
+
 
 window.addEventListener('load', function() {
   main.innerHTML = ' ';
-  getNews(cnnUrl)
+  getNews(natgeoUrl)
   .then(articlesArray => renderNews(articlesArray))
 }, false);
 
+// Button Event Listeners
 cnn.addEventListener('click', function() {
   main.innerHTML = ' ';
   getNews(cnnUrl)

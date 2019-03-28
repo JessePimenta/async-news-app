@@ -8,14 +8,19 @@
   <title>News App</title>
   <link rel="stylesheet" type="text/css" href="public/reset.css" />
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Aguafina+Script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+
   <link rel="stylesheet" type="text/css" href="public/style.css" />
 </head>
+<div class="header">
+
+</div>
 <header>
-  <h1>Phenomenews</h1>
+  <h1>ph.news</h1>
   <form>
     <button id="cnn" type="button">CNN</button>
     <button id="wapo" type="button">The Washington Post</button>
@@ -32,9 +37,10 @@
   </form>
   <div class="search-container">
 
-    <input id='searchInput' type="text" name="" value="">
+    <input id='searchInput' type="text" name="" value="" placeholder="I'm looking for...">
+    <button id="search" type="button">Search &nbsp;⟶</button>
     <div id='pastQueries'></div>
-    <button id="search" type="button">Search all News</button>
+    <!-- <i class="fal fa-long-arrow-right"></i> -->
     <br>
     <br>
   </div>
@@ -50,7 +56,7 @@
       <p class="infoText"></p>
     </section>
     <main>
-      <p class='introText'>Pick your potion.</p>
+      <p class='introText'></p>
     </main>
   </div>
   <footer>

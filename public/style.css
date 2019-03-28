@@ -1,9 +1,3 @@
-/*
-font-family: 'Roboto Slab', serif;
-font-family: 'Raleway', sans-serif;
-*/
-
-
 @-webkit-keyframes bounceInUp {
   from,
   60%,
@@ -43,6 +37,7 @@ font-family: 'Raleway', sans-serif;
 }
 
 @keyframes bounceInUp {
+
   from,
   60%,
   75%,
@@ -57,28 +52,27 @@ font-family: 'Raleway', sans-serif;
     -webkit-transform: translate3d(0, 3000px, 0);
     transform: translate3d(0, 3000px, 0);
 
+    60% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, -20px, 0);
+      transform: translate3d(0, -20px, 0);
+    }
 
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, -20px, 0);
-    transform: translate3d(0, -20px, 0);
-  }
+    75% {
+      -webkit-transform: translate3d(0, 10px, 0);
+      transform: translate3d(0, 10px, 0);
+    }
 
-  75% {
-    -webkit-transform: translate3d(0, 10px, 0);
-    transform: translate3d(0, 10px, 0);
-  }
+    90% {
+      -webkit-transform: translate3d(0, -5px, 0);
+      transform: translate3d(0, -5px, 0);
+    }
 
-  90% {
-    -webkit-transform: translate3d(0, -5px, 0);
-    transform: translate3d(0, -5px, 0);
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
   }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
 }
 
 .bounceInUp {
@@ -94,13 +88,27 @@ font-family: 'Raleway', sans-serif;
   animation-fill-mode: both;
 }
 
-
-body {
-  background: #000000;
+body, * {
+  /* background: #f1f1f1; */
+  color: #353535 !important;
 }
 
 header {
   margin-bottom: 20px;
+}
+
+.header {
+  background: -moz-linear-gradient(top, rgba(250,250,246,1) 0%, rgba(250,250,246,1) 1%, rgba(250,250,246,1) 70%, rgba(250,250,246,0) 100%);
+/* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(250,250,246,1) 0%,rgba(250,250,246,1) 1%,rgba(250,250,246,1) 70%,rgba(250,250,246,0) 100%);
+/* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(250,250,246,1) 40%,rgb(241, 241, 241) 31%,rgb(241, 241, 241) 61%,rgba(250,250,246,0) 94%);
+/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafaf6', endColorstr='#00fafaf6',GradientType=0 );
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  margin-top: -40px;
 }
 
 .container {
@@ -122,29 +130,29 @@ header {
 }
 
 hr {
-    display: block;
-    unicode-bidi: isolate;
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-    overflow: hidden;
-    width: 100%;
-    border-width: 1px;
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  overflow: hidden;
+  width: 100%;
+  border-width: 1px;
 }
 
-
 h1 {
-  font-family: 'Aguafina Script', serif;
-  font-size: 200px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  font-family: 'VT323', serif;
+  font-weight: lighter;
+  letter-spacing: -3.4px;
   text-align: center;
+  text-transform: uppercase;
   padding: 20px;
   color: #ffffff;
   margin-block-end: 0px;
   margin-block-start: 0px;
-  height: 240px;
+  height: 110px;
+  font-size: 100px;
 }
 
 form {
@@ -154,18 +162,20 @@ form {
 }
 
 h2 {
-  font-family: 'Karla', serif;
+  font-family: 'Overpass Mono', serif;
   font-size: 38px;
   letter-spacing: -0.8px;
   color: #ffffff;
   padding: 10px 0px 0px;
   width: 100%;
+  font-weight: bold;
+  line-height: 48px;
   text-align: left;
   margin-bottom: 0px;
 }
 
 h3 {
-  font-family: 'Karla', sans-serif;
+  font-family: 'Overpass Mono', sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 0.94;
@@ -191,6 +201,7 @@ i {
 button:focus {
   outline: 0;
 }
+
 .main {
   display: flex;
   padding: 20px;
@@ -222,30 +233,37 @@ button:focus {
 
 .storyimage {
   max-width: 100%;
-  max-height: 600px;
-  border: 5px solid #fffc74;
+  min-width: 100%;
+  min-height: 100%;
+  /* border: 5px solid #78b3ff; */
+  box-shadow: 1px 1px 53px 0px;
 }
 
 .search-container {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 input#searchInput {
-    background: transparent;
-    border: 1px solid white;
-    font-size: 20px;
-    outline: none;
-    border-radius: 20px;
-    height: 33px;
-    padding-left: 10px;
+  background: transparent;
+  border-bottom: 1px solid black;
+  color: white;
+  font-family: 'VT323';
+  font-size: 18px;
+  outline: none;
+  /* border-radius: 20px; */
+  height: 33px;
+  padding-left: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 40%;
 }
 
 #pastQueries {
   font-family: 'Karla';
   padding: 10px;
-  /* border: 1px solid black; */
   max-width: auto;
   display: block;
   text-align: center;
@@ -253,38 +271,36 @@ input#searchInput {
 }
 
 span.individual-search-val {
-    border: 1px solid white;
-    padding: 6px;
-    border-radius: 20px;
-    color: white;
-    display: inline-flex;
-    line-height: 20px;
-    margin: 4px;
-    justify-content: space-around;
+  border: 1px solid black;
+  padding: 6px;
+  border-radius: 20px;
+  color: white;
+  display: inline-flex;
+  line-height: 20px;
+  margin: 4px;
+  justify-content: space-around;
 }
 
 #espn, #wapo, #ignNews, #cnn, #natgeo, #wapo, #wired, #techCrunch, #bitcoin, #arsTechnica {
-  font-family: 'Karla', sans-serif;
+  font-family: 'Overpass Mono', sans-serif;
   font-size: 15px;
   font-weight: 600;
-  line-height: 0.94;
   letter-spacing: 0.5px;
   text-align: center;
-  color: #ffffff;
+  color: #424040 !important;
   background-color: transparent;
   border: none;
-  /* border-radius: 10px; */
+  margin-right: 20px;
   max-width: 200px;
   height: 30px;
-  /* box-shadow: 0px 1px 2px black; */
-  padding: 22px;
 }
 
 #wapo:focus, #ignNews:focus, #bitcoin:focus, #arsTechnica:focus, #natgeo:focus, #wired:focus, #cnn:focus, #espn:focus, #techCrunch:focus,
-#wapo:hover, #ignNews:hover, #cnn:hover, #natgeo:hover, #bitcoin:hover, #wired:hover, #arsTechnica:hover, #espn:hover, #techCrunch:hover {
+#wapo:hover, #ignNews:hover, #cnn:hover, #natgeo:hover, #bitcoin:hover, #wired:hover, #arsTechnica:hover, #espn:hover, #techCrunch:hover, {
   color: white;
   cursor: pointer;
-  border-bottom: 3px solid #fffc74;
+  box-shadow: 0px 3px 0px #fffc74;
+  transition: all .2s;
 }
 
 .introText {
@@ -292,26 +308,26 @@ span.individual-search-val {
 }
 
 input[type="search"] {
-    border: 1px;
-    background: transparent;
-    border-bottom: 1px solid black;
-    width: 320px;
-    font-size: 14px;
-    outline: none
+  border: 1px;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width: 320px;
+  font-size: 14px;
+  outline: none
 }
 
 button#search {
   border: 1px solid;
   background: transparent;
   padding: 0px;
-  width: 160px;
+  width: 120px;
   border-radius: 20px;
-  background: black;
+  /* background: white; */
   text-align: center;
-  height: 38px;
+  height: 34px;
   font-weight: bold;
-  color: white;
-  font-size: 15px;
+  color: #ffffff;
+  font-family: 'Overpass Mono';
   /* margin-top: 0px; */
 }
 
@@ -332,34 +348,13 @@ button#search {
   cursor: pointer;
 }
 
-/* footer {
-  border-bottom: 12px solid #000000;
-  padding-top: 30px;
-  height: 20px;
-}
-
-footer p, footer a {
-  font-family: 'Raleway', sans-serif;
-  color: #fff;
-  font-size: 14px;
-  text-align: left;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #ccc;
-} */
-
 @media (max-width: 640px) {
-
   .container {
-  max-width: 90%;
-  width: 100%;
-  margin: auto;
-  min-height: calc(100vh - 270px);
-}
-
-
+    max-width: 90%;
+    width: 100%;
+    margin: auto;
+    min-height: calc(100vh - 270px);
+  }
 
   .articlerow {
     display: flex;
@@ -389,11 +384,8 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-
-
   .img-cont {
     flex-direction: column;
-    width: 98%;
   }
 
   .storyimage {
@@ -406,10 +398,8 @@ footer a:hover {
   }
 }
 
-
 @media (max-width: 840px) {
-
-    .storyimage {
+  .storyimage {
     max-width: calc(100vh - 270px);
   }
 }
