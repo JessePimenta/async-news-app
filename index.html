@@ -7,13 +7,40 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>News App</title>
   <link rel="stylesheet" type="text/css" href="public/reset.css" />
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab:700" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/public/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Aguafina+Script" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="public/style.css" />
 </head>
 <header>
-  <h1>Da News</h1>
+  <h1>Phenomenews</h1>
   <form>
+    <button id="cnn" type="button">CNN</button>
+    <button id="wapo" type="button">The Washington Post</button>
+    <button id="espn" type="button">ESPN</button>
+    <button id="natgeo" type="button">Nat Geo</button>
+    <button id="ignNews" type="button">IGN News</button>
+    <button id="wired" type="button">Wired</button>
+    <button id="techCrunch" type="button">TechCrunch</button>
+    <button id="arsTechnica" type="button">ArsTechnica</button>
+    <button id="bitcoin" type="button">Bitcoin News</button>
+    <br>
+    <br>
+    <br>
   </form>
+  <div class="search-container">
+
+    <input id='searchInput' type="text" name="" value="">
+    <div id='pastQueries'></div>
+    <button id="search" type="button">Search all News</button>
+    <br>
+    <br>
+  </div>
+  <br>
+  <br>
+  <hr>
 </header>
 
 <body>
@@ -23,6 +50,7 @@
       <p class="infoText"></p>
     </section>
     <main>
+      <p class='introText'>Pick your potion.</p>
     </main>
   </div>
   <footer>
@@ -31,6 +59,7 @@
     </div>
   </footer>
   <script src="public/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" charset="utf-8"></script>
 </body>
 
 </html>
