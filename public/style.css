@@ -96,7 +96,7 @@ font-family: 'Raleway', sans-serif;
 
 
 body {
-  background: #f3f3f3;
+  background: #000000;
 }
 
 header {
@@ -136,12 +136,15 @@ hr {
 
 h1 {
   font-family: 'Aguafina Script', serif;
-  font-size: 76px;
+  font-size: 200px;
   font-weight: bold;
   letter-spacing: 1px;
   text-align: center;
   padding: 20px;
-  color: #2d2d2d;
+  color: #ffffff;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+  height: 240px;
 }
 
 form {
@@ -153,12 +156,12 @@ form {
 h2 {
   font-family: 'Karla', serif;
   font-size: 38px;
-  line-height: 1.3;
   letter-spacing: -0.8px;
-  color: #423d3d;
+  color: #ffffff;
   padding: 10px 0px 0px;
   width: 100%;
   text-align: left;
+  margin-bottom: 0px;
 }
 
 h3 {
@@ -168,7 +171,7 @@ h3 {
   line-height: 0.94;
   letter-spacing: 0.5px;
   text-align: left;
-  color: #000;
+  color: #fff;
   padding: 5px;
 }
 
@@ -177,7 +180,7 @@ p {
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: 0.2px;
-  color: #2f2f2f;
+  color: #ffffff;
   padding: 5px;
 }
 
@@ -231,7 +234,7 @@ button:focus {
 
 input#searchInput {
     background: transparent;
-    border: 1px solid black;
+    border: 1px solid white;
     font-size: 20px;
     outline: none;
     border-radius: 20px;
@@ -250,9 +253,10 @@ input#searchInput {
 }
 
 span.individual-search-val {
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 6px;
     border-radius: 20px;
+    color: white;
     display: inline-flex;
     line-height: 20px;
     margin: 4px;
@@ -266,7 +270,7 @@ span.individual-search-val {
   line-height: 0.94;
   letter-spacing: 0.5px;
   text-align: center;
-  color: #2c2c2c;
+  color: #ffffff;
   background-color: transparent;
   border: none;
   /* border-radius: 10px; */
@@ -278,7 +282,7 @@ span.individual-search-val {
 
 #wapo:focus, #ignNews:focus, #bitcoin:focus, #arsTechnica:focus, #natgeo:focus, #wired:focus, #cnn:focus, #espn:focus, #techCrunch:focus,
 #wapo:hover, #ignNews:hover, #cnn:hover, #natgeo:hover, #bitcoin:hover, #wired:hover, #arsTechnica:hover, #espn:hover, #techCrunch:hover {
-  color: black;
+  color: white;
   cursor: pointer;
   border-bottom: 3px solid #fffc74;
 }
@@ -305,6 +309,7 @@ button#search {
   background: black;
   text-align: center;
   height: 38px;
+  font-weight: bold;
   color: white;
   font-size: 15px;
   /* margin-top: 0px; */
@@ -317,7 +322,7 @@ button#search {
   line-height: 4.3;
   font-weight: bold;
   letter-spacing: 0.2px;
-  color: #000000;
+  color: #ffffff;
   text-decoration: underline;
   padding: 10px 5px;
 }
