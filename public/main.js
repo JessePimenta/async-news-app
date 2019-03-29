@@ -8,6 +8,7 @@ const natgeo = document.getElementById('natgeo');
 const wired = document.getElementById('wired');
 const techCrunch = document.getElementById('techCrunch');
 const bitcoin = document.getElementById('bitcoin');
+const reddit = document.getElementById('reddit');
 const arsTechnica = document.getElementById('arsTechnica');
 const main = document.getElementsByTagName('main')[0];
 const input = document.getElementsByTagName('input')[0];
@@ -15,6 +16,9 @@ const search = document.getElementById('search');
 const pastQueries = document.getElementById('pastQueries');
 const menuCont = document.getElementById('menu-container');
 const navMenu = document.getElementById('nav-menu');
+const articleRow = document.getElementById('article-row');
+const col = document.getElementById('col');
+const gridToggle = document.getElementById('grid-toggle');
 let queries = [];
 
 
@@ -27,13 +31,14 @@ const wapoUrl = 'https://newsapi.org/v1/articles?source=the-washington-post&sort
 const natgeoUrl = 'https://newsapi.org/v1/articles?source=national-geographic&sortBy=latest&apiKey=';
 const wiredUrl = 'https://newsapi.org/v2/top-headlines?sources=wired&apiKey=';
 const techCrunchUrl = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=';
+const redditUrl = 'https://newsapi.org/v2/top-headlines?sources=reddit-r-all&apiKey=';
 const bitcoinUrl = 'https://newsapi.org/v2/everything?q=bitcoin&from=2019-03-26&to=2019-03-26&sortBy=popularity&apiKey='
 
 // Request News Function
 async function getNews(url) {
   let response = await fetch(url + apiKey);
   let jsonResponse = await response.json();
-  let articlesArray = jsonResponse.articles.slice(0,10);
+  let articlesArray = jsonResponse.articles.slice(0,20);
   console.log(jsonResponse);
   return articlesArray;
 }
@@ -42,7 +47,8 @@ async function getNews(url) {
 function renderNews(articles) {
   articles.map((article, index) => {
     let articleRow =
-      '<div class="articlerow">' +
+      '<div class="articlerow" id="article-row">' +
+      '<div class="col" id="col">' +
       ' <div class="article">' +
       ' <div class="img-cont">' +
       '   <img class="storyimage" src="' + article.urlToImage + '" />' +
@@ -50,7 +56,7 @@ function renderNews(articles) {
       '   <h2 class="title">' + article.title + '</h2>' +
       '   <h3>By ' + article.author +'</h3>' +
       '   <p> ' + article.description + '</p>' +
-      '   <a href="' + article.url + '" target="_blank" class="readmore hvr-skew-forward">Read More</a>' +
+      '   <a href="' + article.url + '" target="_blank" class="readmore ">Read More ⟶</a>' +
       '<hr>'
       ' </div>' +
       '</div>' +
@@ -70,7 +76,9 @@ function renderNews(articles) {
   return articles;
 }
 
-
+gridToggle.addEventListener('click',function() {
+  articleRow.classList.toggle('gridview')
+})
 
 window.addEventListener('load', function() {
   main.innerHTML = ' ';
@@ -120,6 +128,11 @@ techCrunch.addEventListener('click', function() {
   getNews(techCrunchUrl)
   .then(articlesArray => renderNews(articlesArray))
 }, false);
+reddit.addEventListener('click', function() {
+  main.innerHTML = ' ';
+  getNews(redditUrl)
+  .then(articlesArray => renderNews(articlesArray))
+}, false);
 
 arsTechnica.addEventListener('click', function() {
   main.innerHTML = ' ';
@@ -137,12 +150,9 @@ search.addEventListener('click', function() {
    pastQueries.innerHTML = searchHistory;
 
 
-
    getNews('https://newsapi.org/v2/everything?q=' + input.value + '&apiKey=')
    .then(articlesArray => renderNews(articlesArray))
 }, false);
-
-
 
   menuCont.addEventListener('click', function(x) {
     menuCont.classList.toggle("change");
