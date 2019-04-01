@@ -18,7 +18,7 @@ const menuCont = document.getElementById('menu-container');
 const navMenu = document.getElementById('nav-menu');
 const articleRow = document.getElementById('article-row');
 const col = document.getElementById('col');
-const gridToggle = document.getElementById('grid-toggle');
+// const gridToggle = document.getElementById('grid-toggle');
 let queries = [];
 
 
@@ -33,6 +33,7 @@ const wiredUrl = 'https://newsapi.org/v2/top-headlines?sources=wired&apiKey=';
 const techCrunchUrl = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=';
 const redditUrl = 'https://newsapi.org/v2/top-headlines?sources=reddit-r-all&apiKey=';
 const bitcoinUrl = 'https://newsapi.org/v2/everything?q=bitcoin&from=2019-03-26&to=2019-03-26&sortBy=popularity&apiKey='
+const technologyUrl = 'https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey='
 
 // Request News Function
 async function getNews(url) {
@@ -42,6 +43,7 @@ async function getNews(url) {
   console.log(jsonResponse);
   return articlesArray;
 }
+
 
 // Render Function
 function renderNews(articles) {
@@ -76,13 +78,13 @@ function renderNews(articles) {
   return articles;
 }
 
-gridToggle.addEventListener('click',function() {
-  articleRow.classList.toggle('gridview')
-})
+// gridToggle.addEventListener('click',function() {
+//   articleRow.classList.toggle('gridview')
+// })
 
 window.addEventListener('load', function() {
   main.innerHTML = ' ';
-  getNews(natgeoUrl)
+  getNews(technologyUrl)
   .then(articlesArray => renderNews(articlesArray))
 }, false);
 
