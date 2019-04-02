@@ -109,7 +109,7 @@ p {
 i {
   padding: 5px;
   font-style: normal;
-  font-size: 22px;
+  font-size: 16px;
 }
 
 button:focus {
@@ -232,6 +232,10 @@ div#nav-menu button:hover, div#nav-menu button:focus {
     transition: .3s;
     cursor: crosshair;
 
+}
+
+#trending-shown {
+  /* display: none; */
 }
 
 .introText {
@@ -462,11 +466,12 @@ span#grid-toggle {
 
 .category {
     text-align: center !important;
-    margin-right: 40px;
+    margin-right: 50px;
     font-size: 15px !important;
     line-height: 41px;
     color: #5d5d5d !important;
     font-family: 'Overpass Mono';
+    padding-right: 0px;
 }
 
 
@@ -478,6 +483,7 @@ span#grid-toggle {
     color: #434141 !important;
     line-height: 18px;
     padding: 9px;
+    padding-left: 31px;
 }
 
 .sub-nav-menu {
@@ -485,6 +491,7 @@ span#grid-toggle {
     background: transparent;
     border: 1px solid black;
     height: 40px;
+    border-radius: 20px;
     margin-bottom: -10px;
     margin-left: 7px;
     text-align: center;

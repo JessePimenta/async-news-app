@@ -18,6 +18,8 @@ const menuCont = document.getElementById('menu-container');
 const navMenu = document.getElementById('nav-menu');
 const articleRow = document.getElementById('article-row');
 const col = document.getElementById('col');
+const trending = document.getElementById('trending');
+const trendingShown = document.getElementById('trending-shown');
 // const gridToggle = document.getElementById('grid-toggle');
 let queries = [];
 
@@ -159,4 +161,10 @@ search.addEventListener('click', function() {
   menuCont.addEventListener('click', function(x) {
     menuCont.classList.toggle("change");
     navMenu.classList.toggle("show")
+  })
+  trending.addEventListener('click', function(x) {
+    trending.innerHTML = "<span id='trending-shown'>Trending Categories<i>▼</i></span>"
+  })
+  trendingShown.addEventListener('click', function(x) {
+    trendingShown.innerHTML = "<span id='trending'>Trending Categories<i>▶︎</i></span>"
   })
