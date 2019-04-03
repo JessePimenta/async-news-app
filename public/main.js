@@ -93,71 +93,52 @@ function renderNews(articles) {
 }
 window.addEventListener('load', function() {
   main.innerHTML = ' ';
-  getNews(technologyUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(technologyUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
 
 // Button Event Listeners
 cnn.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(cnnUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(cnnUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
-
 wapo.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(wapoUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(wapoUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
-
 espn.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(espnUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(espnUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
-
 ign.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(ignUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(ignUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
-
 natgeo.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(natgeoUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(natgeoUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
-
 wired.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(wiredUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(wiredUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
-
 techCrunch.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(techCrunchUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(techCrunchUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
 reddit.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(redditUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(redditUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
-
 arsTechnica.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(techCrunchUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(techCrunchUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
 
 //category search
 technology.addEventListener('click', function() {
   main.innerHTML = ' ';
-  getNews(technologyUrl)
-    .then(articlesArray => renderNews(articlesArray))
+  getNews(technologyUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
-
 design.addEventListener('click', function() {
   main.innerHTML = ' ';
   getNews(designUrl).then(articlesArray => renderNews(articlesArray))
@@ -178,6 +159,7 @@ fashion.addEventListener('click', function() {
   main.innerHTML = ' ';
   getNews(fashionUrl).then(articlesArray => renderNews(articlesArray))
 }, false);
+
 // keyword search
 search.addEventListener('click', function() {
   main.innerHTML = '';
@@ -187,9 +169,7 @@ search.addEventListener('click', function() {
   let searchHistory = queries.join('');
   pastQueries.innerHTML = searchHistory;
 
-  getNews('https://newsapi.org/v2/everything?q=' + input.value + '&apiKey=')
-
-    .then(articlesArray => renderNews(articlesArray))
+  getNews('https://newsapi.org/v2/everything?q=' + input.value + '&apiKey=').then(articlesArray => renderNews(articlesArray))
 }, false);
 
 menuCont.addEventListener('click', function(x) {

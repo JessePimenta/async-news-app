@@ -71,7 +71,7 @@ h1 {
   font-size: 130px;
 }
 
-form {
+.nav-parent {
   margin: auto;
   text-align: center;
   margin-bottom: 5px;
@@ -187,6 +187,10 @@ input#searchInput {
   border-right: none;
   margin-bottom: 20px;
   width: 40%;
+
+}
+input#searchInput:focus {
+    border-bottom: 2px solid #52e268;
 }
 
 #pastQueries {
@@ -290,6 +294,7 @@ input[type="search"] {
 
   header h1:nth-child(1) {
       margin-block-end: -90px;
+      margin-top: 10px;
       letter-spacing: -0.4px;
   }
 
