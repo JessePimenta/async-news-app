@@ -340,7 +340,7 @@ button#search {
 }
 
 .show {
-  display: block;
+  display: block !important;
 }
 
 .bar1, .bar2, .bar3 {

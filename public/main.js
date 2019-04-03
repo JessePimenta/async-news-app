@@ -13,7 +13,8 @@ const arsTechnica = document.getElementById('arsTechnica');
 const main = document.getElementsByTagName('main')[0];
 const input = document.getElementsByTagName('input')[0];
 const search = document.getElementById('search');
-const pastQueries = document.getElementById('pastQueries');
+const searchInput = document.getElementById('searchInput');
+const searchResult = document.getElementById('searchResult');
 const menuCont = document.getElementById('menu-container');
 const navMenu = document.getElementById('nav-menu');
 const articleRow = document.getElementById('article-row');
@@ -148,23 +149,19 @@ arsTechnica.addEventListener('click', function() {
 search.addEventListener('click', function() {
    main.innerHTML = '';
    let searchVal = input.value;
-   queries.push(" " + "<span class='individual-search-val'>" + searchVal + "</span>");
+   queries.push(" " + "<span class='individual-search-val' id='searchResult'>" + searchVal + "</span>");
 
    let searchHistory = queries.join('');
    pastQueries.innerHTML = searchHistory;
 
-
    getNews('https://newsapi.org/v2/everything?q=' + input.value + '&apiKey=')
+   
    .then(articlesArray => renderNews(articlesArray))
 }, false);
 
   menuCont.addEventListener('click', function(x) {
     menuCont.classList.toggle("change");
     navMenu.classList.toggle("show")
-  })
-  trending.addEventListener('click', function(x) {
-    trending.innerHTML = "<span id='trending-shown'>Trending Categories<i>▼</i></span>"
-  })
-  trendingShown.addEventListener('click', function(x) {
-    trendingShown.innerHTML = "<span id='trending'>Trending Categories<i>▶︎</i></span>"
+    searchInput.classList.toggle("show")
+    search.classList.toggle("show")
   })
