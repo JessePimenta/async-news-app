@@ -28,7 +28,6 @@ header {
   margin: auto;
   text-align: center;
   overflow: hidden;
-  overflow-y: scroll;
   /* display: block; */
 }
 
