@@ -5,64 +5,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>News App</title>
+  <title>Ph/News</title>
   <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
-
   <link rel="stylesheet" type="text/css" href="public/style.css" />
 </head>
-<div class="header">
-
-</div>
-<header>
-</header>
-<h1 id='pageTitle'><span>ph</span>/news</h1>
-<div class='nav-parent'>
-  <div class="menu-container" id='menu-container'>
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
-</div>
-  <div class="nav-menu animated zoomIn" id='nav-menu'>
-    <button id="cnn" type="button">CNN</button>
-    <button id="wapo" type="button">The Washington Post</button>
-    <button id="espn" type="button">ESPN</button>
-    <button id="natgeo" type="button">Nat Geo</button>
-    <button id="ignNews" type="button">IGN News</button>
-    <button id="wired" type="button">Wired</button>
-    <button id="techCrunch" type="button">TechCrunch</button>
-    <button id="arsTechnica" type="button">ArsTechnica</button>
-    <button id="reddit" type="button">Reddit</button>
-
-    <div id='pastQueries'></div>
-
-  </div>
-</div>
-<div class="search-container">
-  <input id='searchInput' type="text" name="" value="" placeholder="I'm looking for...">
-  <button id="search" type="button">Search &nbsp;⟶</button>
-</div>
-<div class='sub-nav-menu'>
-  <div class="category-toggle">
-  </div>
-  <div class="category-nav">
-    <span class='grid-toggle category' id='technology'>Technology</span>
-    <span class='grid-toggle category' id='design'>Design</span>
-    <span class='grid-toggle category' id='film'>Film</span>
-    <span class='grid-toggle category' id='travel'>Travel</span>
-    <span class='grid-toggle category' id='music'>Music</span>
-    <span class='grid-toggle category' id='fashion'>Fashion</span>
-  </div>
-</div>
-
 <body>
+  <div class="header"></div>
+  <header>
+  </header>
+
+  <h1 id='pageTitle'><span>ph</span>/news</h1>
+
+  <div class='nav-parent'>
+    <div class="menu-container" id='menu-container'>
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+    <div class="nav-menu animated zoomIn" id='nav-menu'>
+      <button id="cnn" type="button">CNN</button>
+      <button id="wapo" type="button">The Washington Post</button>
+      <button id="espn" type="button">ESPN</button>
+      <button id="natgeo" type="button">Nat Geo</button>
+      <button id="ignNews" type="button">IGN News</button>
+      <button id="wired" type="button">Wired</button>
+      <button id="techCrunch" type="button">TechCrunch</button>
+      <button id="arsTechnica" type="button">ArsTechnica</button>
+      <button id="reddit" type="button">Reddit</button>
+      <div id='pastQueries'></div>
+    </div>
+  </div>
+  <div class="search-container">
+    <input id='searchInput' type="text" name="" value="" placeholder="I'm looking for...">
+    <button id="search" type="button">Search &nbsp;⟶</button>
+  </div>
+  <div class='sub-nav-menu'>
+    <!-- <div id='json'></div> -->
+    <div class="category-nav">
+      <span class='grid-toggle category' id='technology'>Technology</span>
+      <span class='grid-toggle category' id='design'>Design</span>
+      <span class='grid-toggle category' id='film'>Film</span>
+      <span class='grid-toggle category' id='travel'>Travel</span>
+      <span class='grid-toggle category' id='music'>Music</span>
+      <span class='grid-toggle category' id='fashion'>Fashion</span>
+    </div>
+  </div>
+
   <div class="container">
     <main></main>
   </div>
+
   <script src="public/main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" charset="utf-8"></script>
 </body>
 </html>

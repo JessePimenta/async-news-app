@@ -22,6 +22,8 @@ const film = document.getElementById('film');
 const travel = document.getElementById('travel');
 const music = document.getElementById('music');
 const fashion = document.getElementById('fashion');
+const json = document.getElementById('json');
+
 
 const main = document.getElementsByTagName('main')[0];
 const input = document.getElementsByTagName('input')[0];
@@ -52,6 +54,7 @@ async function getNews(url) {
   let jsonResponse = await response.json();
   let articlesArray = jsonResponse.articles.slice(0, 20);
   console.log(jsonResponse);
+  // json.innerHTML = jsonResponse.articles[2].title;
   return articlesArray;
 }
 
@@ -172,7 +175,7 @@ search.addEventListener('click', function() {
   getNews('https://newsapi.org/v2/everything?q=' + input.value + '&apiKey=').then(articlesArray => renderNews(articlesArray))
 }, false);
 
-menuCont.addEventListener('click', function(x) {
+menuCont.addEventListener('click', function() {
   menuCont.classList.toggle("change");
   navMenu.classList.toggle("show")
   searchInput.classList.toggle("show")
