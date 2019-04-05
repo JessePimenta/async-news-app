@@ -10,7 +10,7 @@ const input = document.getElementsByTagName('input')[0];
 let queries = [];
 
 //news api key
-const apiKey = 'e1a57c30f61646bfa1568e026031039e';
+const apiKey = '36e87249de8a4aadbff2267253e3d0c3';
 
 //default news content
 const musicUrl = 'https://newsapi.org/v2/everything?q=underground-music&apiKey='
