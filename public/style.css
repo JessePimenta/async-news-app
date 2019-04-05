@@ -71,6 +71,7 @@ h1 {
 .nav-parent {
   margin: auto;
   text-align: center;
+  text-align: -webkit-center;
   margin-bottom: 5px;
 }
 
