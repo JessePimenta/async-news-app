@@ -2,38 +2,35 @@
 <html lang="en">
 
 <head>
+  <title>ph/news</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Ph/News</title>
   <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="public/style.css" />
 </head>
+
 <body>
   <div class="header"></div>
-  <header>
-  </header>
-
-  <h1 id='pageTitle'><span>ph</span>/news</h1>
-
+  <h1 id='pageTitle'><span>PH</span>/NEWS</h1>
   <div class='nav-parent'>
     <div class="menu-container" id='menu-container'>
-    <div class="bar1"></div>
-    <div class="bar2"></div>
-    <div class="bar3"></div>
-  </div>
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
     <div class="nav-menu animated zoomIn" id='nav-menu'>
-      <button id="cnn" type="button">CNN</button>
-      <button id="wapo" type="button">The Washington Post</button>
-      <button id="espn" type="button">ESPN</button>
-      <button id="natgeo" type="button">Nat Geo</button>
-      <button id="ignNews" type="button">IGN News</button>
-      <button id="wired" type="button">Wired</button>
-      <button id="techCrunch" type="button">TechCrunch</button>
-      <button id="arsTechnica" type="button">ArsTechnica</button>
-      <button id="reddit" type="button">Reddit</button>
+      <button id="cnn" type="button" data-apiurl="https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=">CNN</button>
+      <button id="wapo" type="button" data-apiurl='https://newsapi.org/v1/articles?source=the-washington-post&sortBy=latest&apiKey='>The Washington Post</button>
+      <button id="espn" type="button" data-apiurl='https://newsapi.org/v1/articles?source=espn&sortBy=latest&apiKey='>ESPN</button>
+      <button id="natgeo" type="button" data-apiurl='https://newsapi.org/v1/articles?source=national-geographic&sortBy=latest&apiKey='>Nat Geo</button>
+      <button id="ignNews" type="button" data-apiurl='https://newsapi.org/v1/articles?source=ign&sortBy=latest&apiKey='>IGN News</button>
+      <button id="wired" type="button" data-apiurl='https://newsapi.org/v1/articles?source=wired&sortBy=latest&apiKey='>Wired</button>
+      <button id="techCrunch" type="button" data-apiurl='https://newsapi.org/v1/articles?source=techcrunch&sortBy=latest&apiKey='>TechCrunch</button>
+      <button id="arsTechnica" type="button" data-apiurl ='https://newsapi.org/v2/top-headlines?sources=ars-technica&apiKey='>ArsTechnica</button>
+      <button id="reddit" type="button" data-apiurl ='https://newsapi.org/v2/top-headlines?sources=reddit-r-all&apiKey='>Reddit</button>
       <div id='pastQueries'></div>
     </div>
   </div>
@@ -42,19 +39,18 @@
     <button id="search" type="button">Search &nbsp;⟶</button>
   </div>
   <div class='sub-nav-menu'>
-    <!-- <div id='json'></div> -->
     <div class="category-nav">
-      <span class='grid-toggle category' id='technology'>Technology</span>
-      <span class='grid-toggle category' id='design'>Design</span>
-      <span class='grid-toggle category' id='film'>Film</span>
-      <span class='grid-toggle category' id='travel'>Travel</span>
-      <span class='grid-toggle category' id='music'>Music</span>
-      <span class='grid-toggle category' id='fashion'>Fashion</span>
+      <span class='grid-toggle category' id='technology' data-apiurl='https://newsapi.org/v2/top-headlines?country=us&category=technology&sortBy=popularity&apiKey='>Technology</span>
+      <span class='grid-toggle category' id='design' data-apiurl='https://newsapi.org/v2/everything?q=graphic-design&sortBy=popularity&apiKey='>Design</span>
+      <span class='grid-toggle category' id='film' data-apiurl='https://newsapi.org/v2/everything?q=movies&from=2019-03-26&to=2019-03-26&sortBy=popularity&apiKey='>Film</span>
+      <span class='grid-toggle category' id='travel' data-apiurl='https://newsapi.org/v2/everything?q=travel&sortBy=popularity&apiKey='>Travel</span>
+      <span class='grid-toggle category' id='music' data-apiurl='https://newsapi.org/v2/everything?q=underground-music&apiKey='>Music</span>
+      <span class='grid-toggle category' id='fashion' data-apiurl='https://newsapi.org/v2/everything?q=fashion-week&apiKey='>Fashion</span>
     </div>
   </div>
 
   <div class="container">
-    <main></main>
+    <main class'animated zoomIn'></main>
   </div>
 
   <script src="public/main.js"></script>
