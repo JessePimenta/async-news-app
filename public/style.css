@@ -177,7 +177,7 @@ input#searchInput {
 }
 
 input#searchInput:focus {
-  border-bottom: 2px solid #52e268;
+  border-bottom: 2.5px solid #52e268;
 }
 
 #pastQueries {
@@ -456,6 +456,12 @@ span.grid-toggle {
   color: #5d5d5d !important;
   font-family: 'Overpass Mono';
   padding-right: 0px;
+
+}
+
+  .category:hover {
+    border-bottom: 3px solid #a476f7;
+    transition all .3s;
 }
 
 .category-toggle span {
