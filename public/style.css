@@ -462,6 +462,7 @@ span.grid-toggle {
   .category:hover {
     border-bottom: 3px solid #a476f7;
     transition: all .3s;
+    cursor: crosshair;
 }
 
 .category-toggle span {
