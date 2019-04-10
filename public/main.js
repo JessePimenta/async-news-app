@@ -6,12 +6,13 @@ const navMenu = document.getElementById('nav-menu');
 const articleRow = document.getElementById('article-row');
 const main = document.getElementsByTagName('main')[0];
 const input = document.getElementsByTagName('input')[0];
-const navButtons = document.querySelectorAll('#nav-menu button')
+const navButtons = document.querySelectorAll('#nav-menu .news-source-button')
 const one = document.getElementById('one');
 const two = document.getElementById('two');
 let visitedSources = [];
 let queries = [];
 let page;
+let url;
 
 //news api key
 const apiKey = '7fc09805651f4aa2824d7320465308c3';
@@ -22,7 +23,7 @@ const bitcoinUrl = 'https://newsapi.org/v2/everything?q=bitcoin&language=en&page
 async function getNews(url,page) {
   let response = await fetch(url + apiKey);
   let jsonResponse = await response.json();
-  let articlesArray = jsonResponse.articles.slice(0,100);
+  let articlesArray = jsonResponse.articles.slice(0,12);
   console.log(jsonResponse);
   return articlesArray;
 }
@@ -30,7 +31,7 @@ async function getNews(url,page) {
 async function pageTwo(url) {
   let response = await fetch(url + apiKey);
   let jsonResponse = await response.json();
-  let articlesArray = jsonResponse.articles.slice(11,20);
+  let articlesArray = jsonResponse.articles.slice(12,24);
   console.log(jsonResponse);
   return articlesArray;
 }
@@ -43,7 +44,9 @@ window.addEventListener('load', function() {
   main.innerHTML = ' ';
   getNews(bitcoinUrl).then(articlesArray => renderNews(articlesArray))
 
+  one.setAttribute("data-apiurl", "https://newsapi.org/v2/everything?q=bitcoin&apiKey=");
   two.setAttribute("data-apiurl", "https://newsapi.org/v2/everything?q=bitcoin&apiKey=");
+
 
   if (visitedSources[visitedSources.length -1] !== visitedSources[visitedSources.length -2]) {
     two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
@@ -75,33 +78,30 @@ function renderNews(articles) {
 
 
 // Button Event Listeners
-
-
 navButtons.forEach((button) => {
 
   button.addEventListener('click', function(evt) {
-
-    const url = evt.target.dataset.apiurl;
-      visitedSources.push(url)
-
-    if (visitedSources[visitedSources.length -1] !== visitedSources[visitedSources.length -2]) {
-        console.log('getting page two')
-        two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
-        main.innerHTML = ' ';
-        pageTwo(url).then(articlesArray => renderNews(articlesArray))
-    }
-      else if (visitedSources[visitedSources.length -1] == visitedSources[visitedSources.length -2]) {
-        console.log('getting page one')
-        one.setAttribute("data-apiurl", visitedSources[visitedSources.length - 2]);
-        main.innerHTML = ' ';
-        getNews(url).then(articlesArray => renderNews(articlesArray))
-    }
-
-    // main.innerHTML = ' ';
-    // getNews(url).then(articlesArray => renderNews(articlesArray))
-
+    url = evt.target.dataset.apiurl;
+    visitedSources.push(url)
+    one.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1])
+    two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
+    main.innerHTML = ' ';
+    getNews(url).then(articlesArray => renderNews(articlesArray))
     });
+
 });
+
+one.addEventListener('click', event => {
+  main.innerHTML = ' ';
+  getNews(url).then(articlesArray => renderNews(articlesArray))
+  console.log(visitedSources[visitedSources.length - 2])
+})
+
+two.addEventListener('click', event => {
+  main.innerHTML = ' ';
+  pageTwo(url).then(articlesArray => renderNews(articlesArray))
+  console.log(visitedSources[visitedSources.length - 1])
+})
 
 document.querySelectorAll('.sub-nav-menu span').forEach((button) => {
   button.addEventListener('click', function(evt) {
@@ -121,7 +121,7 @@ document.querySelectorAll('.sub-nav-menu span').forEach((button) => {
 
 
 // keyword search
-search.addEventListener('click', function() {
+search.addEventListener('click', event => {
   main.innerHTML = '';
   let searchVal = input.value;
   queries.push(" " + "<span class='individual-search-val' id='searchResult'>" + searchVal + "</span>");
@@ -132,7 +132,7 @@ search.addEventListener('click', function() {
 }, false);
 
 // hide or show nav menu items on mobile
-menuCont.addEventListener('click', function() {
+menuCont.addEventListener('click', event => {
   menuCont.classList.toggle("change");
   navMenu.classList.toggle("show")
   searchInput.classList.toggle("show")
