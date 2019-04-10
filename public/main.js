@@ -7,21 +7,22 @@ const articleRow = document.getElementById('article-row');
 const main = document.getElementsByTagName('main')[0];
 const input = document.getElementsByTagName('input')[0];
 const navButtons = document.querySelectorAll('#nav-menu button')
+const one = document.getElementById('one');
 const two = document.getElementById('two');
 let visitedSources = [];
 let queries = [];
+let page;
+
 //news api key
-const apiKey = 'b335ace826444deeb7a6bbceb7230cf3';
+const apiKey = '7fc09805651f4aa2824d7320465308c3';
 
 //default news content
-const musicUrl = 'https://newsapi.org/v2/everything?q=underground-music&apiKey='
-const bitcoinUrl = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey='
+const bitcoinUrl = 'https://newsapi.org/v2/everything?q=bitcoin&language=en&pageSize=100&apiKey='
 
-// Request News Function
-async function getNews(url) {
+async function getNews(url,page) {
   let response = await fetch(url + apiKey);
   let jsonResponse = await response.json();
-  let articlesArray = jsonResponse.articles.slice(0,10);
+  let articlesArray = jsonResponse.articles.slice(0,100);
   console.log(jsonResponse);
   return articlesArray;
 }
@@ -57,7 +58,7 @@ function renderNews(articles) {
           '<div class="col" id="col">' +
             '<div class="article">' +
             ' <div class="img-cont">' +
-            '   <img preload class="storyimage" src="' + article.urlToImage + '" />' +
+            '   <img loading="lazy" class="storyimage" src="' + article.urlToImage + '" />' +
             ' </div>' +
               '<h2 class="title">' + article.title + '</h2>' +
               '<h3>By ' + article.author + '</h3>' +
@@ -84,12 +85,20 @@ navButtons.forEach((button) => {
       visitedSources.push(url)
 
     if (visitedSources[visitedSources.length -1] !== visitedSources[visitedSources.length -2]) {
+        console.log('getting page two')
         two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
         main.innerHTML = ' ';
         pageTwo(url).then(articlesArray => renderNews(articlesArray))
     }
-    main.innerHTML = ' ';
-    getNews(url).then(articlesArray => renderNews(articlesArray))
+      else if (visitedSources[visitedSources.length -1] == visitedSources[visitedSources.length -2]) {
+        console.log('getting page one')
+        one.setAttribute("data-apiurl", visitedSources[visitedSources.length - 2]);
+        main.innerHTML = ' ';
+        getNews(url).then(articlesArray => renderNews(articlesArray))
+    }
+
+    // main.innerHTML = ' ';
+    // getNews(url).then(articlesArray => renderNews(articlesArray))
 
     });
 });
