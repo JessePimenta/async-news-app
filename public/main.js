@@ -6,23 +6,48 @@ const navMenu = document.getElementById('nav-menu');
 const articleRow = document.getElementById('article-row');
 const main = document.getElementsByTagName('main')[0];
 const input = document.getElementsByTagName('input')[0];
-
+const navButtons = document.querySelectorAll('#nav-menu button')
+const two = document.getElementById('two');
+let visitedSources = [];
 let queries = [];
-
 //news api key
-const apiKey = '36e87249de8a4aadbff2267253e3d0c3';
+const apiKey = 'b335ace826444deeb7a6bbceb7230cf3';
 
 //default news content
 const musicUrl = 'https://newsapi.org/v2/everything?q=underground-music&apiKey='
+const bitcoinUrl = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey='
 
 // Request News Function
 async function getNews(url) {
   let response = await fetch(url + apiKey);
   let jsonResponse = await response.json();
-  let articlesArray = jsonResponse.articles.slice(0, 20);
+  let articlesArray = jsonResponse.articles.slice(0,10);
   console.log(jsonResponse);
   return articlesArray;
 }
+
+async function pageTwo(url) {
+  let response = await fetch(url + apiKey);
+  let jsonResponse = await response.json();
+  let articlesArray = jsonResponse.articles.slice(11,20);
+  console.log(jsonResponse);
+  return articlesArray;
+}
+
+
+
+//default news to some source
+window.addEventListener('load', function() {
+
+  main.innerHTML = ' ';
+  getNews(bitcoinUrl).then(articlesArray => renderNews(articlesArray))
+
+  two.setAttribute("data-apiurl", "https://newsapi.org/v2/everything?q=bitcoin&apiKey=");
+
+  if (visitedSources[visitedSources.length -1] !== visitedSources[visitedSources.length -2]) {
+    two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
+  }
+}, false);
 
 // Render Function
 function renderNews(articles) {
@@ -47,28 +72,44 @@ function renderNews(articles) {
   return articles;
 }
 
-//default news to some source
-window.addEventListener('load', function() {
-  main.innerHTML = ' ';
-  getNews(musicUrl).then(articlesArray => renderNews(articlesArray))
-}, false);
 
 // Button Event Listeners
-document.querySelectorAll('#nav-menu button').forEach((button) => {
+
+
+navButtons.forEach((button) => {
+
   button.addEventListener('click', function(evt) {
+
     const url = evt.target.dataset.apiurl;
+      visitedSources.push(url)
+
+    if (visitedSources[visitedSources.length -1] !== visitedSources[visitedSources.length -2]) {
+        two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
+        main.innerHTML = ' ';
+        pageTwo(url).then(articlesArray => renderNews(articlesArray))
+    }
     main.innerHTML = ' ';
     getNews(url).then(articlesArray => renderNews(articlesArray))
-  });
+
+    });
 });
 
 document.querySelectorAll('.sub-nav-menu span').forEach((button) => {
   button.addEventListener('click', function(evt) {
     const url = evt.target.dataset.apiurl;
+    visitedSources.push(url)
+
+    if (visitedSources[visitedSources.length -1] !== visitedSources[visitedSources.length -2]) {
+        two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
+        main.innerHTML = ' ';
+        pageTwo(url).then(articlesArray => renderNews(articlesArray))
+    }
+
     main.innerHTML = ' ';
     getNews(url).then(articlesArray => renderNews(articlesArray))
   });
 });
+
 
 // keyword search
 search.addEventListener('click', function() {

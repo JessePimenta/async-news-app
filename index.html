@@ -22,15 +22,17 @@
       <div class="bar3"></div>
     </div>
     <div class="nav-menu animated zoomIn" id='nav-menu'>
-      <button id="cnn" type="button" data-apiurl="https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=">CNN</button>
-      <button id="wapo" type="button" data-apiurl='https://newsapi.org/v1/articles?source=the-washington-post&sortBy=latest&apiKey='>The Washington Post</button>
-      <button id="espn" type="button" data-apiurl='https://newsapi.org/v1/articles?source=espn&sortBy=latest&apiKey='>ESPN</button>
-      <button id="natgeo" type="button" data-apiurl='https://newsapi.org/v1/articles?source=national-geographic&sortBy=latest&apiKey='>Nat Geo</button>
-      <button id="ignNews" type="button" data-apiurl='https://newsapi.org/v1/articles?source=ign&sortBy=latest&apiKey='>IGN News</button>
-      <button id="wired" type="button" data-apiurl='https://newsapi.org/v2/top-headlines?sources=wired&apiKey='>Wired</button>
-      <button id="techCrunch" type="button" data-apiurl='https://newsapi.org/v1/articles?source=techcrunch&sortBy=latest&apiKey='>TechCrunch</button>
-      <button id="arsTechnica" type="button" data-apiurl ='https://newsapi.org/v2/top-headlines?sources=ars-technica&apiKey='>ArsTechnica</button>
-      <button id="reddit" type="button" data-apiurl ='https://newsapi.org/v2/top-headlines?sources=reddit-r-all&apiKey='>Reddit</button>
+      <button id="cnn" type="button" data-apiurl="https://newsapi.org/v2/everything?sources=cnn&language=en&sortBy=latest&apiKey=">CNN</button>
+      <button id="wapo" type="button" data-apiurl='https://newsapi.org/v2/everything?sources=the-washington-post&language=en&sortBy=latest&apiKey='>The Washington Post</button>
+      <button id="espn" type="button" data-apiurl='https://newsapi.org/v2/everything?domains=espn.com&apiKey='>ESPN</button>
+      <button id="natgeo" type="button" data-apiurl='https://newsapi.org/v2/everything?sources=national-geographic&language=en&sortBy=latest&apiKey='>Nat Geo</button>
+      <button id="ignNews" type="button" data-apiurl='https://newsapi.org/v2/everything?sources=ign&language=en&sortBy=latest&apiKey='>IGN News</button>
+      <button id="wired" type="button" data-apiurl='https://newsapi.org/v2/everything?domains=wired.com&language=en&sortBy=latest&apiKey='>Wired</button>
+      <button id="techCrunch" type="button" data-apiurl='https://newsapi.org/v2/everything?sources=techcrunch&apiKey='>TechCrunch</button>
+      <button id="arsTechnica" type="button" data-apiurl ='https://newsapi.org/v2/everything?sources=ars-technica&sortBy=latest&language=en&apiKey='>ArsTechnica</button>
+      <br>
+      <button data-apiurl=''  id="one"><</button>
+      <button data-apiurl=''  id="two">></button>
       <div id='pastQueries'></div>
     </div>
   </div>
@@ -41,7 +43,7 @@
   <div class='sub-nav-menu'>
     <div class="category-nav">
       <span class='grid-toggle category' id='technology' data-apiurl='https://newsapi.org/v2/top-headlines?country=us&category=technology&sortBy=popularity&apiKey='>Technology</span>
-      <span class='grid-toggle category' id='design' data-apiurl='https://newsapi.org/v2/everything?q=graphic-design&sortBy=popularity&apiKey='>Design</span>
+      <span class='grid-toggle category' id='design' data-apiurl='https://newsapi.org/v2/everything?q=graphic-design&sortBy=latest&apiKey='>Design</span>
       <span class='grid-toggle category' id='film' data-apiurl='https://newsapi.org/v2/everything?q=movies&from=2019-03-26&to=2019-03-26&sortBy=popularity&apiKey='>Film</span>
       <span class='grid-toggle category' id='travel' data-apiurl='https://newsapi.org/v2/everything?q=travel&sortBy=popularity&apiKey='>Travel</span>
       <span class='grid-toggle category' id='music' data-apiurl='https://newsapi.org/v2/everything?q=underground-music&apiKey='>Music</span>
@@ -50,9 +52,16 @@
   </div>
 
   <div class="container">
+    <section class='pages'>
+      <br>
+      <br>
+      <!-- <h2>Trending This Week</h2> -->
+
+    </section>
     <main class'animated zoomIn'></main>
   </div>
 
   <script src="public/main.js"></script>
+  <!-- <script src="public/pagination.js"></script> -->
 </body>
 </html>
