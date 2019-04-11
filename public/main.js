@@ -79,7 +79,6 @@ function renderNews(articles) {
 
 // Button Event Listeners
 navButtons.forEach((button) => {
-
   button.addEventListener('click', function(evt) {
     url = evt.target.dataset.apiurl;
     visitedSources.push(url)
@@ -88,8 +87,39 @@ navButtons.forEach((button) => {
     main.innerHTML = ' ';
     getNews(url).then(articlesArray => renderNews(articlesArray))
     });
-
 });
+
+document.querySelectorAll('.sub-nav-menu span').forEach((button) => {
+
+  button.addEventListener('click', function(evt) {
+    url = evt.target.dataset.apiurl;
+    visitedSources.push(url)
+    one.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1])
+    two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
+    main.innerHTML = ' ';
+    getNews(url).then(articlesArray => renderNews(articlesArray))
+  });
+});
+
+
+// keyword search
+search.addEventListener('click', event => {
+  main.innerHTML = '';
+  let searchVal = input.value;
+  url = 'https://newsapi.org/v2/everything?q=' + input.value + '&pageSize=100&apiKey=';
+  console.log(url)
+  visitedSources.push(url)
+
+  one.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1])
+  two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
+
+  queries.push(" " + "<span class='individual-search-val' id='searchResult'>" + searchVal + "</span>");
+  let searchHistory = queries.join('');
+  pastQueries.innerHTML = searchHistory;
+  // show search history
+  getNews(url).then(articlesArray => renderNews(articlesArray))
+}, false);
+
 
 one.addEventListener('click', event => {
   main.innerHTML = ' ';
@@ -102,34 +132,6 @@ two.addEventListener('click', event => {
   pageTwo(url).then(articlesArray => renderNews(articlesArray))
   console.log(visitedSources[visitedSources.length - 1])
 })
-
-document.querySelectorAll('.sub-nav-menu span').forEach((button) => {
-  button.addEventListener('click', function(evt) {
-    const url = evt.target.dataset.apiurl;
-    visitedSources.push(url)
-
-    if (visitedSources[visitedSources.length -1] !== visitedSources[visitedSources.length -2]) {
-        two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
-        main.innerHTML = ' ';
-        pageTwo(url).then(articlesArray => renderNews(articlesArray))
-    }
-
-    main.innerHTML = ' ';
-    getNews(url).then(articlesArray => renderNews(articlesArray))
-  });
-});
-
-
-// keyword search
-search.addEventListener('click', event => {
-  main.innerHTML = '';
-  let searchVal = input.value;
-  queries.push(" " + "<span class='individual-search-val' id='searchResult'>" + searchVal + "</span>");
-  // show search history
-  let searchHistory = queries.join('');
-  pastQueries.innerHTML = searchHistory;
-  getNews('https://newsapi.org/v2/everything?q=' + input.value + '&apiKey=').then(articlesArray => renderNews(articlesArray))
-}, false);
 
 // hide or show nav menu items on mobile
 menuCont.addEventListener('click', event => {
