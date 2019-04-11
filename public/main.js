@@ -18,7 +18,7 @@ let url;
 const apiKey = '7fc09805651f4aa2824d7320465308c3';
 
 //default news content
-const bitcoinUrl = 'https://newsapi.org/v2/everything?q=bitcoin&language=en&pageSize=100&apiKey='
+url = 'https://newsapi.org/v2/everything?q=bitcoin&language=en&pageSize=100&apiKey='
 
 async function getNews(url,page) {
   let response = await fetch(url + apiKey);
@@ -39,18 +39,13 @@ async function pageTwo(url) {
 
 
 //default news to some source
-window.addEventListener('load', function() {
+window.addEventListener('load', function(evt) {
 
   main.innerHTML = ' ';
-  getNews(bitcoinUrl).then(articlesArray => renderNews(articlesArray))
-
+  getNews(url).then(articlesArray => renderNews(articlesArray))
+  visitedSources.push(url)
   one.setAttribute("data-apiurl", "https://newsapi.org/v2/everything?q=bitcoin&apiKey=");
   two.setAttribute("data-apiurl", "https://newsapi.org/v2/everything?q=bitcoin&apiKey=");
-
-
-  if (visitedSources[visitedSources.length -1] !== visitedSources[visitedSources.length -2]) {
-    two.setAttribute("data-apiurl", visitedSources[visitedSources.length - 1]);
-  }
 }, false);
 
 // Render Function
