@@ -7,21 +7,16 @@ const articleRow = document.getElementById('article-row');
 const main = document.getElementsByTagName('main')[0];
 const input = document.getElementsByTagName('input')[0];
 const navButtons = document.querySelectorAll('#nav-menu .news-source-button')
+const subNavButtons = document.querySelectorAll('.sub-nav-menu span')
 const one = document.getElementById('one');
 const two = document.getElementById('two');
 const currentPage = document.getElementById('current-page')
+const apiKey = '959a96617c394b67aa889fb8ce5a0816';
 let visitedSources = [];
 let queries = [];
 let page;
 let url;
 let count = 0;
-function preloadImage(url)
-{
-    var img= new Image();
-    img.src=url;
-}
-//news api key
-const apiKey = '959a96617c394b67aa889fb8ce5a0816';
 
 //default news content
 url = 'https://newsapi.org/v2/everything?q=bitcoin&language=en&pageSize=20&page=1&apiKey='
@@ -73,7 +68,6 @@ function renderNews(articles) {
   return articles;
 }
 
-
 //  NEWS SOURCES
 navButtons.forEach((button) => {
   button.addEventListener('click', function(evt) {
@@ -87,7 +81,7 @@ navButtons.forEach((button) => {
 });
 
 // CATEGORIES
-document.querySelectorAll('.sub-nav-menu span').forEach((button) => {
+subNavButtons.forEach((button) => {
   button.addEventListener('click', function(evt) {
     url = evt.target.dataset.apiurl;
     visitedSources.push(url)
@@ -115,17 +109,14 @@ search.addEventListener('click', event => {
   pastQueries.innerHTML = searchHistory;
   //show search history
 
-  //if next/prev pages are clicked while a search term is active
   // ** When the page is incremented from the query string it seems to cut me off after a few pages saying:
   // "GET https://newsapi.org/v2/everything?q=bitcoin&pageSize=20&page=6&apiKey=3e2bc7a33aac4bb0aaeb7d40dda4c03b 426 (Upgrade Required)"
-
   one.addEventListener('click', event => {
     count--;
     url = 'https://newsapi.org/v2/everything?q=' + input.value + '&pageSize=20&page=' + count + '&apiKey=';
     main.innerHTML = ' ';
     getNews(url).then(articlesArray => renderNews(articlesArray))
   })
-
   two.addEventListener('click', event => {
     count++;
     console.log(count)
@@ -134,7 +125,6 @@ search.addEventListener('click', event => {
     main.innerHTML = ' ';
     pageTwo(url).then(articlesArray => renderNews(articlesArray))
   })
-
   getNews(url).then(articlesArray => renderNews(articlesArray))
 }, false);
 

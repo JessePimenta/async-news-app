@@ -464,7 +464,7 @@ input[type="search"] {
   opacity: .9;
 }
 
-span.grid-toggle {
+span.sub-nav-button {
   font-family: 'Overpass Mono';
   font-size: 12px;
   font-weight: bolder;
