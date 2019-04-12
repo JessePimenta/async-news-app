@@ -122,13 +122,13 @@ button:focus {
 }
 
 img {
-  background: url(public/loader.gif) 50% no-repeat;
+  background: url(./public/loader.gif) 50% no-repeat;
   /* border: 1px solid black; */
   /* border-radius: 5px; */
 }
 
 img.storyimage[src='null'] {
-  background: url(public/static.gif) 50% no-repeat;
+  background: url(./public/static.gif) 50% no-repeat;
   min-height: 300px;
 }
 
