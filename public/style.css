@@ -143,6 +143,7 @@ img {
 img.storyimage[src='null'] {
   background: url(static.gif) 50% no-repeat;
   min-height: 300px;
+  min-width: 300px;
 }
 
 .main {
