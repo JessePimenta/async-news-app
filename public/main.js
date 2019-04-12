@@ -15,7 +15,12 @@ let queries = [];
 let page;
 let url;
 let count = 0;
+let images = document.images;
+let downloadingImage = new Image();
 
+downloadingImage.onload = function(){
+  images.src = this.src;
+};
 //news api key
 const apiKey = '3e2bc7a33aac4bb0aaeb7d40dda4c03b';
 
@@ -54,7 +59,7 @@ function renderNews(articles) {
           '<div class="col" id="col">' +
             '<div class="article">' +
             ' <div class="img-cont">' +
-            '   <img loading="lazy" class="storyimage" src="' + article.urlToImage + '" />' +
+            '   <img class="storyimage" src="' + article.urlToImage + '" />' +
             ' </div>' +
               '<h2 class="title">' + article.title + '</h2>' +
               '<h3>By ' + article.author + '</h3>' +
