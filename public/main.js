@@ -58,7 +58,7 @@ function renderNews(articles) {
           '<div class="col" id="col">' +
             '<div class="article">' +
             ' <div class="img-cont">' +
-            '   <img class="storyimage" src="' + article.urlToImage + '" />' +
+            '   <a href="'+ article.url + '"><img class="storyimage" src="' + article.urlToImage + '" /></a>' +
             ' </div>' +
               '<h2 class="title">' + article.title + '</h2>' +
               '<h3>By ' + article.author + '</h3>' +
