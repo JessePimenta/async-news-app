@@ -15,14 +15,13 @@ let queries = [];
 let page;
 let url;
 let count = 0;
-let images = document.images;
-let downloadingImage = new Image();
-
-downloadingImage.onload = function(){
-  images.src = this.src;
-};
+function preloadImage(url)
+{
+    var img= new Image();
+    img.src=url;
+}
 //news api key
-const apiKey = '3e2bc7a33aac4bb0aaeb7d40dda4c03b';
+const apiKey = '959a96617c394b67aa889fb8ce5a0816';
 
 //default news content
 url = 'https://newsapi.org/v2/everything?q=bitcoin&language=en&pageSize=20&page=1&apiKey='
