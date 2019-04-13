@@ -288,6 +288,8 @@ input[type="search"] {
   color: #353535;
   padding: 10px 0px 4px;
   margin-bottom: 0px;
+  position: relative;
+  z-index: -10;
 }
 
 .article a:hover, .article a:focus {
@@ -461,7 +463,7 @@ input[type="search"] {
 .img-cont:hover {
   /* transition: 0.2s; */
   transition: .2s;
-  opacity: .9;
+  /* opacity: .9; */
 }
 
 span.sub-nav-button {
@@ -545,5 +547,46 @@ span.sub-nav-button {
 
   .sub-nav-menu button {
     margin-left: 20px;
+  }
+}
+
+
+#cursorBlob {
+  width: 75px;
+  height: 75px;
+  background: linear-gradient(120deg, #FF1744, #E040FB, #2979FF, #00E5FF, #76FF03);
+  background-size: 1600% 1600%;
+  position: absolute;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.65s cubic-bezier(0.25, 0.46, 0.08, 0.96);
+  animation: blobRadius 4.4s cubic-bezier(0.63, 0.58, 0, 1.64) infinite, blobBackground 15s ease infinite;
+}
+
+@keyframes blobRadius {
+  0%, 100% {
+    border-radius: 43% 57% 50% 40% / 40% 40% 80% 80%;
+  }
+  20% {
+    border-radius: 47% 73% 61% 59% / 47% 75% 45% 73%;
+  }
+  40% {
+    border-radius: 46% 74% 74% 46% / 74% 58% 62% 46%;
+
+  }
+  60% {
+    border-radius: 47% 73% 61% 59% / 40% 40% 80% 80%;
+  }
+  80% {
+    border-radius: 50% 50% 52% 68% / 51% 61% 59% 69%;
+  }
+}
+@keyframes blobBackground {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }

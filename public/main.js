@@ -149,3 +149,25 @@ menuCont.addEventListener('click', event => {
   searchInput.classList.toggle("show")
   search.classList.toggle("show")
 })
+
+
+
+const blobCursor = (() => {
+  const cursor = document.getElementById('cursorBlob');
+  const links = navButtons;
+  const sublinks = subNavButtons;
+  const setCursorPos = (evt) => {
+    const { pageX: posX, pageY: posY } = evt;
+    cursor.style.top = `${posY - (cursor.offsetHeight / 2)}px`;
+    cursor.style.left = `${posX - (cursor.offsetWidth / 2)}px`;
+  };
+  document.addEventListener('mousemove', setCursorPos);
+
+  const setCursorHover = () => cursor.style.transform = 'scale(1.4)';
+  const removeCursorHover = () => cursor.style.transform = 'scale(1)';
+  links.forEach(link => link.addEventListener('mouseover', setCursorHover));
+  links.forEach(link => link.addEventListener('mouseleave', removeCursorHover));
+  sublinks.forEach(link => link.addEventListener('mouseover', setCursorHover));
+  sublinks.forEach(link => link.addEventListener('mouseleave', removeCursorHover));
+
+})();
