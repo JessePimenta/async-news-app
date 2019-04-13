@@ -557,7 +557,7 @@ span.sub-nav-button {
   background: linear-gradient(120deg, #FF1744, #E040FB, #2979FF, #00E5FF, #76FF03);
   background-size: 1600% 1600%;
   position: absolute;
-  mix-blend-mode: difference;
+  mix-blend-mode: hard-light;
   pointer-events: none;
   z-index: -1;
   transition: all 0.65s cubic-bezier(0.25, 0.46, 0.08, 0.96);
