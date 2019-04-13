@@ -561,7 +561,7 @@ span.sub-nav-button {
   pointer-events: none;
   z-index: -1;
   transition: all 0.65s cubic-bezier(0.25, 0.46, 0.08, 0.96);
-  animation: blobRadius 4.4s cubic-bezier(0.63, 0.58, 0, 1.64) infinite, blobBackground 15s ease infinite;
+  animation: blobRadius 7.4s cubic-bezier(0.63, 0.58, 0, 1.64) infinite, blobBackground 15s ease infinite;
 }
 
 @keyframes blobRadius {
