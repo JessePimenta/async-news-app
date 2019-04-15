@@ -49,7 +49,7 @@ window.addEventListener('load', function(evt) {
 function renderNews(articles) {
   articles.map((article, index) => {
     let articleRow =
-        '<div class="articlerow animated zoomIn" id="article-row">' +
+        '<div class="articlerow" id="article-row">' +
           '<div class="col" id="col">' +
             '<div class="article">' +
             ' <div class="img-cont">' +
